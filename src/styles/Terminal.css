@@ -1,0 +1,74 @@
+/* styles/Terminal.css */
+.terminal-window {
+    background-color: var(--code-bg);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.terminal-header {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.terminal-button {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.terminal-button:nth-child(1) {
+    background-color: #ff5f56;
+}
+
+.terminal-button:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.terminal-button:nth-child(3) {
+    background-color: #27c93f;
+}
+
+.terminal-body {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.terminal-line {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.terminal-prompt {
+    color: var(--secondary);
+    margin-right: 0.5rem;
+}
+
+.terminal-command {
+    color: var(--light);
+}
+
+.terminal-output {
+    color: #a5a5a5;
+    padding-left: 1rem;
+}
+
+.typing {
+    position: relative;
+}
+
+.typing::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+}
