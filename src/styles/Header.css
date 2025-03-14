@@ -1,0 +1,97 @@
+/* styles/Header.css */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg fill='%233f3f46' fill-opacity='0.15'%3E%3Cpath d='M0 0h5v5H0zm5 5h5v5H5zm5 5h5v5h-5zm5-5h5v5h-5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    margin: 1.5rem 0 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #a5a5a5;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+
+.social-link {
+    color: var(--light);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--primary);
+    transform: translateY(-3px) rotate(10deg);
+}
+
+.arrow-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--light);
+    opacity: 0;
+    transition: opacity 0.8s ease 1.2s;
+}
+
+.title.visible,
+.subtitle.visible,
+.social-links.visible,
+.arrow-down.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.arrow-down.visible {
+    animation: bounce 2s infinite 1.2s;
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}

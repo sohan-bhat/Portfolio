@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import '../styles/Terminal.css';
 
-const Terminal = () => {
+const Terminal = ({ onAnimationComplete }) => {
     const [commandIndex, setCommandIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [displayedOutput, setDisplayedOutput] = useState([]);
@@ -9,7 +9,7 @@ const Terminal = () => {
     const terminalData = useMemo(() => [
         { prompt: "~$", command: "whoami", output: "sohan-bhat@portfolio:~$" },
         { prompt: "~$", command: "cat skills.txt", output: "Java | React | C++ | Python | UI/UX" },
-        { prompt: "~$", command: "sudo getstarted", output: "Welcome! Learn more about me and what I do!" },
+        { prompt: "~$", command: "sudo getstarted.exe", output: "Welcome! Learn more about me and what I do!" },
     ], []);
 
     // Creating terminal effects
@@ -20,7 +20,7 @@ const Terminal = () => {
             if (charIndex < currentCommand.length) {
                 const timer = setTimeout(() => {
                     setCharIndex(charIndex + 1);
-                }, 100);
+                }, 70);
                 return () => clearTimeout(timer);
             } else {
                 if (terminalData[commandIndex].output) {
@@ -28,14 +28,18 @@ const Terminal = () => {
                         setDisplayedOutput([...displayedOutput, commandIndex]);
                         setCommandIndex(commandIndex + 1);
                         setCharIndex(0);
-                    }, 500);
+                    }, 300);
                     return () => clearTimeout(outputTimer);
                 } else {
                     // Keeps cursor blinking on last command (effect)
                 }
             }
+        } else {
+            if (onAnimationComplete) {
+                onAnimationComplete()
+            }
         }
-    }, [commandIndex, charIndex, displayedOutput, terminalData]);
+    }, [commandIndex, charIndex, displayedOutput, terminalData, onAnimationComplete]);
 
     return (
         <div className="terminal-window">

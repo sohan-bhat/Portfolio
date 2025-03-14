@@ -1,9 +1,9 @@
 /* styles/Terminal.css */
 .terminal-window {
     background-color: var(--code-bg);
-    border-radius: 8px;
+    border-radius: 10px;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     padding: 1rem;
     margin-bottom: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
