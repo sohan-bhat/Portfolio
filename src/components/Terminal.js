@@ -28,7 +28,7 @@ const Terminal = ({ onAnimationComplete }) => {
                         setDisplayedOutput([...displayedOutput, commandIndex]);
                         setCommandIndex(commandIndex + 1);
                         setCharIndex(0);
-                    }, 300);
+                    }, 265);
                     return () => clearTimeout(outputTimer);
                 } else {
                     // Keeps cursor blinking on last command (effect)
