@@ -14,27 +14,9 @@
     position: relative;
 }
 
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-short);
-    z-index: 1;
-}
-
 .project-card.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-}
-
-.project-card.hovered::before {
-    transform: scaleX(1);
 }
 
 .project-card.hovered {
@@ -50,15 +32,12 @@
     overflow: hidden;
 }
 
-.project-image::after {
-    content: '<img />';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: var(--accent);
-    font-size: 0.75rem;
-    opacity: 0.5;
-    z-index: 1;
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Change from default (center) to center top */
+    transition: transform 0.5s ease;
 }
 
 .project-image img {

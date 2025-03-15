@@ -23,7 +23,7 @@ const Footer = () => {
         return positions;
     };
 
-    const lineCount = 70;
+    const lineCount = 30;
     const positions = createDistributedPositions(lineCount);
 
     return (
