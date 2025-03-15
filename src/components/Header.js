@@ -21,16 +21,16 @@ const Header = () => {
                 <p className={`subtitle ${isVisible ? 'visible' : ''}`}>Full Stack Developer</p>
 
                 <div className={`social-links ${isVisible ? 'visible' : ''}`}>
-                    <a href='https://github.com/sohan-bhat' target='_blank' className='social-link'>
+                    <a href='https://github.com/sohan-bhat' target='_blank' className='social-link' rel="noreferrer">
                         <FaGithub />
                     </a>
                     <a href='#' className='social-link' target='_blank'>
                         <FaLinkedin />
                     </a>
-                    <a href='https://x.com/The_Sohan_Bhat' target='_blank' className='social-link'>
+                    <a href='https://x.com/The_Sohan_Bhat' target='_blank' className='social-link' rel="noreferrer">
                         <FaTwitter />
                     </a>
-                    <a href='#' className='social-link' target='_blank'>
+                    <a href='#' className='social-link' target='_blank' rel="noreferrer">
                         <FaInstagram />
                     </a>
                 </div>
