@@ -45,9 +45,9 @@ const ProjectCard = ({ project }) => {
                 <div className='project-overlay'>
                     <div className='project-links'>
                         {project.demoLink && (
-                            <a href={project.demoLink} target='_blank' className='project-link'>Demo</a>
+                            <a href={project.demoLink} target='_blank' className='project-link' rel="noreferrer">Demo</a>
                         )}
-                        <a href={project.codeLink} target='_blank' className='project-link'>Code</a>
+                            <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
                     </div>
                 </div>
             </div>
