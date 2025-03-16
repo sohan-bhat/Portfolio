@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaMail, FaTwitter } from 'react-icons/fa'
+import { IoIosMail } from 'react-icons/io'
 import Terminal from './Terminal';
 import '../styles/Header.css';
 
@@ -24,14 +25,14 @@ const Header = () => {
                     <a href='https://github.com/sohan-bhat' target='_blank' className='social-link' rel="noreferrer">
                         <FaGithub />
                     </a>
-                    <a href='#' className='social-link' target='_blank'>
+                    <a href='https://mail.google.com/mail/u/0/?fs=1&to=sohanrambhat@gmail.com&tf=cm' className='social-link' target='_blank' rel="noreferrer">
+                        <IoIosMail />
+                    </a>
+                    <a href='#' className='social-link'>
                         <FaLinkedin />
                     </a>
                     <a href='https://x.com/The_Sohan_Bhat' target='_blank' className='social-link' rel="noreferrer">
                         <FaTwitter />
-                    </a>
-                    <a href='#' className='social-link' target='_blank' rel="noreferrer">
-                        <FaInstagram />
                     </a>
                 </div>
                 <div className={`arrow-down ${isVisible ? 'visible' : ''}`}>
