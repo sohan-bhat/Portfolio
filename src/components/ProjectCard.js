@@ -1,3 +1,4 @@
+// src/components/ProjectCard.js
 import React, { useState, useEffect } from 'react';
 import '../styles/ProjectCard.css'
 
@@ -47,23 +48,28 @@ const ProjectCard = ({ project }) => {
                         {project.demoLink && (
                             <a href={project.demoLink} target='_blank' className='project-link' rel="noreferrer">Demo</a>
                         )}
-                            <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
+                        <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
                     </div>
                 </div>
             </div>
             <div className='project-content'>
-                <h3 className='project-title'>{project.title}</h3>
+                <div className="project-header">
+                    <h3 className='project-title'>{project.title}</h3>
+                    <span className={`project-badge ${project.status === "Production" ? 'badge-production' : 'badge-development'}`}>
+                        {project.status === "Production" ? "Prod" : "Dev"}
+                    </span>
+                </div>
                 <p>{project.description}</p>
                 <div className='project-tags'>
                     {project.tags.map((tag, index) => (
-                        <span key={index} className={`project-tag tag-${index % 3}`}>
+                        <span key={index} className={`project-tag tag-${index % 4}`}>
                             {tag}
                         </span>
                     ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default React.memo(ProjectCard);

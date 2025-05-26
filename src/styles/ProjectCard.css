@@ -93,10 +93,70 @@
     transition: transform var(--transition-short);
 }
 
-.tag-0 {
+.project-card {
+    background: var(--code-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent; /* add a default transparent border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px) scale(0.98);
+    opacity: 0;
+    transition:
+        transform var(--transition-long),
+        box-shadow var(--transition-long),
+        opacity var(--transition-long),
+        border 0.3s ease;
+    position: relative;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Remove any default margin from h3 within the header */
+.project-header .project-title {
+    margin: 0;
+    line-height: 1;
+}
+
+/* Update badge styles if needed */
+.project-badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.badge-production {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+.badge-development {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.project-card.hovered {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary); /* show outline when hovered */
+}
+
+.tag-3 {
     background-color: rgba(99, 102, 241, 0.1);
     color: var(--primary);
     border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.tag-0 {
+    background-color: rgba(244, 197, 86, 0.1);
+    color: rgb(219, 156, 67);
+    border: 1px solid rgba(241, 168, 99, 0.2);
 }
 
 .tag-1 {
