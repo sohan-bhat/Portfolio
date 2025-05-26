@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { FaGithub, FaLinkedin, FaMail, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import Terminal from './Terminal';
 import '../styles/Header.css';
