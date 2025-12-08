@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     padding: 2rem;
     text-align: center;
-    margin-top: 14vh;
-    background: linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg fill='%233f3f46' fill-opacity='0.15'%3E%3Cpath d='M0 0h5v5H0zm5 5h5v5H5zm5 5h5v5h-5zm5-5h5v5h-5z'/%3E%3C/g%3E%3C/svg%3E");
+    padding-top: 15vh;
+    background: var(--dark);
 }
+
 
 .container {
     display: flex;
@@ -20,23 +20,33 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .title {
-    font-size: 3rem;
-    margin: 1rem 0 1rem;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem;
+    color: var(--light);
+    letter-spacing: -0.02em;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.title::after {
+    content: '.';
+    color: var(--primary);
+}
+
 .subtitle {
-    font-size: 1.2rem;
-    color: #a5a5a5;
-    margin-bottom: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
@@ -45,53 +55,107 @@
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
 }
 
 .social-link {
-    color: var(--light);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-decoration: none;
-    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.social-link:hover {
-    color: var(--primary);
-    transform: translateY(-3px) rotate(10deg);
+/* GitHub - light/white */
+.social-link:nth-child(1) {
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.social-link:nth-child(1):hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Google - matte red */
+.social-link:nth-child(2) {
+    color: #db6b5e;
+    border: 1px solid rgba(219, 107, 94, 0.4);
+}
+
+.social-link:nth-child(2):hover {
+    background: rgba(219, 107, 94, 0.15);
+    transform: translateY(-2px);
+}
+
+/* LinkedIn - matte blue */
+.social-link:nth-child(3) {
+    color: #7eb8da;
+    border: 1px solid rgba(126, 184, 218, 0.4);
+}
+
+.social-link:nth-child(3):hover {
+    background: rgba(126, 184, 218, 0.15);
+    transform: translateY(-2px);
+}
+
+/* X - white/light */
+.social-link:nth-child(4) {
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.social-link:nth-child(4):hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .arrow-down {
     position: absolute;
-    bottom: 10rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--light);
+    color: var(--muted);
     opacity: 0;
-    transition: opacity 0.8s ease 1.2s;
+    transition: opacity 0.5s ease;
 }
 
 .title.visible,
 .subtitle.visible,
-.social-links.visible,
-.arrow-down.visible {
+.social-links.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .arrow-down.visible {
-    animation: bounce 2s infinite 1.2s;
+    opacity: 1;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    transition: opacity 0.5s ease;
+}
+
+.arrow-down.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
     .header {
-        height: auto;
         min-height: 100vh;
+        padding-top: 12vh;
     }
 
     .title {
         font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
     }
 }

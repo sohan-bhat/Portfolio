@@ -1,11 +1,17 @@
 /* styles/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --primary: #6366f1;
-    --secondary: #10b981;
-    --accent: #f43f5e;
-    --dark: #111827;
-    --code-bg: #1e293b;
-    --light: #f9fafb;
+    /* Matte, desaturated palette */
+    --primary: #7dd3c0;       /* Matte teal */
+    --secondary: #a78bda;     /* Matte purple */
+    --accent: #e09b7d;        /* Matte coral/orange */
+    --highlight: #d4c97a;     /* Matte gold */
+    --terminal-green: #5cb85c; /* Terminal green */
+    --dark: #121216;
+    --code-bg: #1a1a1f;
+    --light: #fafafa;
+    --muted: #888;
     --transition-short: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-long: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -14,10 +20,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--dark);
     color: var(--light);
     line-height: 1.6;

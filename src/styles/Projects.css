@@ -1,38 +1,58 @@
 /* styles/Projects.css */
 .projects {
     padding: 6rem 0;
-    background-color: #131b2a;
+    background-color: var(--dark);
+    position: relative;
+}
+
+/* Top border line */
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .section-title {
+    font-family: 'Outfit', sans-serif;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     position: relative;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--light);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.8s ease forwards;
 }
 
-.section-title::before {
-    content: '</>';
-    position: absolute;
-    top: -1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1rem;
-    color: var(--accent);
-    opacity: 0.5;
+.title-period {
+    color: var(--primary);
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        margin-bottom: 3rem;
     }
 }

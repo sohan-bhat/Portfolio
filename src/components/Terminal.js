@@ -16,11 +16,11 @@ const Terminal = ({ onAnimationComplete }) => {
     useEffect(() => {
         if (commandIndex < terminalData.length) {
             const currentCommand = terminalData[commandIndex].command;
-    
+
             if (charIndex < currentCommand.length) {
                 const timer = setTimeout(() => {
                     setCharIndex(charIndex + 1);
-                }, 70);
+                }, 55);
                 return () => clearTimeout(timer);
             } else {
                 if (terminalData[commandIndex].output) {
@@ -28,7 +28,7 @@ const Terminal = ({ onAnimationComplete }) => {
                         setDisplayedOutput([...displayedOutput, commandIndex]);
                         setCommandIndex(commandIndex + 1);
                         setCharIndex(0);
-                    }, 265);
+                    }, 200);
                     return () => clearTimeout(outputTimer);
                 } else {
                     // Keeps cursor blinking on last command (effect)

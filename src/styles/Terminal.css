@@ -38,7 +38,7 @@
 }
 
 .terminal-body {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.9rem;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .terminal-prompt {
-    color: var(--secondary);
+    color: var(--terminal-green);
     margin-right: 0.5rem;
 }
 

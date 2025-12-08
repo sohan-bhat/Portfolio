@@ -1,16 +1,17 @@
 /* styles/ProjectCard.css */
 .project-card {
     background: var(--code-bg);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     transform: translateY(30px) scale(0.98);
     opacity: 0;
     transition:
         transform var(--transition-long),
         box-shadow var(--transition-long),
-        opacity var(--transition-long);
+        opacity var(--transition-long),
+        border 0.3s ease;
     position: relative;
 }
 
@@ -20,15 +21,16 @@
 }
 
 .project-card.hovered {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-8px) scale(1.01);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary);
 }
 
 .project-image {
     position: relative;
     width: 100%;
     height: 180px;
-    background-color: #0f172a;
+    background-color: var(--dark);
     overflow: hidden;
 }
 
@@ -36,14 +38,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* Change from default (center) to center top */
-    transition: transform 0.5s ease;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    object-position: center top;
     transition: transform 0.5s ease;
 }
 
@@ -57,7 +52,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(17, 24, 39, 0.8);
+    background: rgba(18, 18, 22, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,134 +65,130 @@
 }
 
 .project-content {
-    padding: 1.5rem;
-}
-
-.project-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary);
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.project-tag {
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    transition: transform var(--transition-short);
-}
-
-.project-card {
-    background: var(--code-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid transparent; /* add a default transparent border */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(30px) scale(0.98);
-    opacity: 0;
-    transition:
-        transform var(--transition-long),
-        box-shadow var(--transition-long),
-        opacity var(--transition-long),
-        border 0.3s ease;
-    position: relative;
+    padding: 1.25rem;
 }
 
 .project-header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Remove any default margin from h3 within the header */
-.project-header .project-title {
+.project-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light);
     margin: 0;
     line-height: 1;
 }
 
-/* Update badge styles if needed */
 .project-badge {
     display: inline-block;
     padding: 0.2rem 0.5rem;
-    border-radius: 8px;
-    font-size: 0.7rem;
-    font-weight: bold;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 400;
     line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .badge-production {
-    background-color: var(--secondary);
-    color: #fff;
+    background-color: rgba(125, 211, 192, 0.15);
+    color: var(--primary);
 }
 
 .badge-development {
-    background-color: var(--accent);
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--muted);
 }
 
-.project-card.hovered {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--primary); /* show outline when hovered */
+.project-content p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
 }
 
-.tag-3 {
-    background-color: rgba(99, 102, 241, 0.1);
-    color: var(--primary);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
 }
 
-.tag-0 {
-    background-color: rgba(244, 197, 86, 0.1);
-    color: rgb(219, 156, 67);
-    border: 1px solid rgba(241, 168, 99, 0.2);
-}
-
-.tag-1 {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--secondary);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.tag-2 {
-    background-color: rgba(244, 63, 94, 0.1);
-    color: var(--accent);
-    border: 1px solid rgba(244, 63, 94, 0.2);
+.project-tag {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform var(--transition-short);
 }
 
 .project-card.hovered .project-tag {
     transform: translateY(-2px);
 }
 
+/* Matte colored tags */
+.tag-0 {
+    background-color: rgba(125, 211, 192, 0.1);
+    color: var(--primary);
+    border-color: rgba(125, 211, 192, 0.2);
+}
+
+.tag-1 {
+    background-color: rgba(167, 139, 218, 0.1);
+    color: var(--secondary);
+    border-color: rgba(167, 139, 218, 0.2);
+}
+
+.tag-2 {
+    background-color: rgba(224, 155, 125, 0.1);
+    color: var(--accent);
+    border-color: rgba(224, 155, 125, 0.2);
+}
+
+.tag-3 {
+    background-color: rgba(212, 201, 122, 0.1);
+    color: var(--highlight);
+    border-color: rgba(212, 201, 122, 0.2);
+}
+
 .project-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .project-link {
     color: var(--light);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 1.25rem;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
     transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .project-link:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
+    background: var(--light);
+    color: var(--dark);
+    border-color: var(--light);
+}
+
+.project-link:nth-child(2) {
+    border-color: rgba(125, 211, 192, 0.4);
+    color: var(--primary);
 }
 
 .project-link:nth-child(2):hover {
-    background: var(--secondary);
+    background: var(--primary);
+    color: var(--dark);
+    border-color: var(--primary);
 }
