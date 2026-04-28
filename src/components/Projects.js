@@ -8,11 +8,15 @@ const Projects = () => {
         {
             id: 1,
             title: "VacantCourt",
-            description: "A real-time court availibility website that finds free, nearby courts and shows if they're available or not. Play more, wait less.",
+            description: "A real-time court availability system that finds free, nearby courts and shows if they're available. Play more, wait less.",
             image: "/imgs/VacantCourtWebsite.png",
-            tags: ["Vite", "Firebase", "Kotlin", "AndroidX", "YoloV5" ],
+            tags: ["Vite", "React", "Firebase", "Kotlin", "TensorFlow Lite"],
             demoLink: "https://vacantcourt.netlify.app",
-            codeLink: "https://github.com/sohan-bhat/vacantcourtwebsite"
+            codeLinks: [
+                { label: "Web", url: "https://github.com/sohan-bhat/vacantcourtwebsite" },
+                // TODO: replace with actual Android repo URL
+                { label: "Android", url: "https://github.com/sohan-bhat/vacantcourt-android" }
+            ]
         },
         {
             id: 2,

@@ -48,7 +48,13 @@ const ProjectCard = ({ project }) => {
                         {project.demoLink && (
                             <a href={project.demoLink} target='_blank' className='project-link' rel="noreferrer">Demo</a>
                         )}
-                        <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
+                        {project.codeLinks ? (
+                            project.codeLinks.map((link) => (
+                                <a key={link.label} href={link.url} target='_blank' className='project-link' rel="noreferrer">{link.label}</a>
+                            ))
+                        ) : (
+                            <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
+                        )}
                     </div>
                 </div>
             </div>
