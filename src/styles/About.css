@@ -1,0 +1,123 @@
+.about {
+    padding: 6rem 0 4rem;
+    background-color: var(--dark);
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.about .section-title {
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--light);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.about-prose {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    color: var(--light);
+}
+
+.about-prose p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(250, 250, 250, 0.85);
+    margin-bottom: 1.1rem;
+}
+
+.about-prose p:last-child {
+    margin-bottom: 0;
+}
+
+.currently-block {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--code-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.currently-prompt-line {
+    margin-bottom: 0.75rem;
+}
+
+.currently-prompt {
+    color: var(--primary);
+    margin-right: 0.6rem;
+}
+
+.currently-command {
+    color: var(--light);
+}
+
+.currently-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.currently-row {
+    display: grid;
+    grid-template-columns: 70px 70px 1fr;
+    gap: 0.5rem;
+    color: rgba(250, 250, 250, 0.85);
+}
+
+.currently-header-row {
+    color: var(--primary);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
+}
+
+.col-pid,
+.col-cpu {
+    color: var(--muted);
+}
+
+.currently-header-row .col-pid,
+.currently-header-row .col-cpu,
+.currently-header-row .col-cmd {
+    color: var(--primary);
+}
+
+.col-cmd {
+    color: rgba(250, 250, 250, 0.9);
+}
+
+@media (max-width: 600px) {
+    .about {
+        padding: 4rem 0 3rem;
+    }
+
+    .about .section-title {
+        font-size: 2.25rem;
+    }
+
+    .currently-block {
+        font-size: 0.75rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .currently-row {
+        grid-template-columns: 50px 50px 1fr;
+    }
+}
