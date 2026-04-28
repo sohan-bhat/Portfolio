@@ -21,9 +21,7 @@
 }
 
 .project-card.hovered {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--primary);
+    border-color: rgba(125, 211, 192, 0.35);
 }
 
 .project-image {
@@ -43,7 +41,7 @@
 }
 
 .project-card.hovered .project-image img {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .project-overlay {
@@ -131,7 +129,7 @@
 }
 
 .project-card.hovered .project-tag {
-    transform: translateY(-2px);
+    transform: none;
 }
 
 /* Matte colored tags */
