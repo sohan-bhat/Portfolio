@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
+import { FaGithub, FaEnvelope } from 'react-icons/fa6'
 import '../styles/Footer.css'
 
 const Footer = () => {
@@ -45,6 +47,26 @@ const Footer = () => {
             </div>
             <div className="container">
                 <div className="footer-content">
+                    <div className="footer-links">
+                        <a
+                            href="mailto:sohanrambhat@gmail.com"
+                            className="footer-link"
+                            aria-label="Email"
+                        >
+                            <FaEnvelope />
+                            <span>sohanrambhat@gmail.com</span>
+                        </a>
+                        <a
+                            href="https://github.com/sohan-bhat"
+                            className="footer-link"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="GitHub"
+                        >
+                            <FaGithub />
+                            <span>github.com/sohan-bhat</span>
+                        </a>
+                    </div>
                     <p>© 2025 Sohan Bhat. Crafted with &lt;/&gt; and ♥</p>
                 </div>
             </div>
