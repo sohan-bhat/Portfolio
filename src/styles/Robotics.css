@@ -1,0 +1,183 @@
+.robotics {
+    padding: 6rem 0;
+    background-color: var(--dark);
+    position: relative;
+}
+
+.robotics::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.robotics .section-title {
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--light);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.robotics-subtitle {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.robotics-prose {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: rgba(250, 250, 250, 0.85);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.robotics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 2rem;
+}
+
+.robot-photo-slot {
+    background: var(--code-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.robot-photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.robotics-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.season-log {
+    background: var(--code-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    overflow-x: auto;
+}
+
+.season {
+    margin-bottom: 1rem;
+}
+
+.season:last-child {
+    margin-bottom: 0;
+}
+
+.season-prompt-line {
+    margin-bottom: 0.5rem;
+}
+
+.season-prompt {
+    color: var(--primary);
+    margin-right: 0.6rem;
+}
+
+.season-command {
+    color: var(--light);
+}
+
+.season-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.season-entry {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0.75rem;
+    color: rgba(250, 250, 250, 0.85);
+}
+
+.season-entry-image {
+    align-items: start;
+    margin-top: 0.4rem;
+}
+
+.entry-hash {
+    color: var(--primary);
+}
+
+.entry-line {
+    color: rgba(250, 250, 250, 0.85);
+}
+
+.entry-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tba-link {
+    display: block;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    border: 1px solid rgba(125, 211, 192, 0.4);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    width: max-content;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.tba-link:hover {
+    background: var(--primary);
+    color: var(--dark);
+    border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .robotics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .robotics .section-title {
+        font-size: 2.25rem;
+    }
+
+    .season-log {
+        font-size: 0.75rem;
+    }
+
+    .season-entry {
+        grid-template-columns: 70px 1fr;
+        gap: 0.5rem;
+    }
+}
