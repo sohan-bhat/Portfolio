@@ -8,7 +8,7 @@ const Terminal = ({ onAnimationComplete }) => {
 
     const terminalData = useMemo(() => [
         { prompt: "~$", command: "whoami", output: "sohan-bhat@portfolio:~$" },
-        { prompt: "~$", command: "cat skills.txt", output: "Java | React | C++ | Python | UI/UX" },
+        { prompt: "~$", command: "cat skills.txt", output: "Java | TypeScript | Kotlin | Python | React" },
         { prompt: "~$", command: "sudo getstarted.exe", output: "Welcome! Learn more about me and what I do!" },
     ], []);
 
