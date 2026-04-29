@@ -12,32 +12,26 @@ const Terminal = ({ onAnimationComplete }) => {
         { prompt: "~$", command: "sudo getstarted.exe", output: "Welcome! Learn more about me and what I do!" },
     ], []);
 
-    // Creating terminal effects
     useEffect(() => {
-        if (commandIndex < terminalData.length) {
-            const currentCommand = terminalData[commandIndex].command;
+        if (commandIndex >= terminalData.length) {
+            if (onAnimationComplete) onAnimationComplete();
+            return;
+        }
 
-            if (charIndex < currentCommand.length) {
-                const timer = setTimeout(() => {
-                    setCharIndex(charIndex + 1);
-                }, 55);
-                return () => clearTimeout(timer);
-            } else {
-                if (terminalData[commandIndex].output) {
-                    const outputTimer = setTimeout(() => {
-                        setDisplayedOutput([...displayedOutput, commandIndex]);
-                        setCommandIndex(commandIndex + 1);
-                        setCharIndex(0);
-                    }, 200);
-                    return () => clearTimeout(outputTimer);
-                } else {
-                    // Keeps cursor blinking on last command (effect)
-                }
-            }
-        } else {
-            if (onAnimationComplete) {
-                onAnimationComplete()
-            }
+        const currentCommand = terminalData[commandIndex].command;
+
+        if (charIndex < currentCommand.length) {
+            const timer = setTimeout(() => setCharIndex(charIndex + 1), 55);
+            return () => clearTimeout(timer);
+        }
+
+        if (terminalData[commandIndex].output) {
+            const outputTimer = setTimeout(() => {
+                setDisplayedOutput([...displayedOutput, commandIndex]);
+                setCommandIndex(commandIndex + 1);
+                setCharIndex(0);
+            }, 200);
+            return () => clearTimeout(outputTimer);
         }
     }, [commandIndex, charIndex, displayedOutput, terminalData, onAnimationComplete]);
 
@@ -51,7 +45,6 @@ const Terminal = ({ onAnimationComplete }) => {
             <div className="terminal-body">
                 {terminalData.map((line, index) => (
                     <React.Fragment key={index}>
-                        {/* Command line */}
                         {index <= commandIndex && (
                             <div className="terminal-line">
                                 <span className="terminal-prompt">{line.prompt}</span>
@@ -60,8 +53,6 @@ const Terminal = ({ onAnimationComplete }) => {
                                 </span>
                             </div>
                         )}
-
-                        {/* Output line */}
                         {line.output && displayedOutput.includes(index) && (
                             <div className="terminal-line">
                                 <span className="terminal-output">{line.output}</span>
@@ -72,6 +63,6 @@ const Terminal = ({ onAnimationComplete }) => {
             </div>
         </div>
     );
-}
+};
 
-export default Terminal
+export default Terminal;

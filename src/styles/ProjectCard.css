@@ -1,26 +1,26 @@
-/* styles/ProjectCard.css */
 .project-card {
     background: var(--code-bg);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(30px) scale(0.98);
-    opacity: 0;
-    transition:
-        transform var(--transition-long),
-        box-shadow var(--transition-long),
-        opacity var(--transition-long),
-        border 0.3s ease;
     position: relative;
+    animation: cardEnter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    transition: border-color 0.3s ease;
 }
 
-.project-card.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-.project-card.hovered {
+.project-card:hover {
     border-color: rgba(125, 211, 192, 0.35);
 }
 
@@ -37,11 +37,6 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.5s ease;
-}
-
-.project-card.hovered .project-image img {
-    transform: none;
 }
 
 .project-overlay {
@@ -58,7 +53,7 @@
     transition: opacity var(--transition-short);
 }
 
-.project-card.hovered .project-overlay {
+.project-card:hover .project-overlay {
     opacity: 1;
 }
 
@@ -125,14 +120,8 @@
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--muted);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform var(--transition-short);
 }
 
-.project-card.hovered .project-tag {
-    transform: none;
-}
-
-/* Matte colored tags */
 .tag-0 {
     background-color: rgba(125, 211, 192, 0.1);
     color: var(--primary);
@@ -160,6 +149,8 @@
 .project-links {
     display: flex;
     gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .project-link {
@@ -180,12 +171,12 @@
     border-color: var(--light);
 }
 
-.project-link:nth-child(2) {
+.project-link:not(:first-child) {
     border-color: rgba(125, 211, 192, 0.4);
     color: var(--primary);
 }
 
-.project-link:nth-child(2):hover {
+.project-link:not(:first-child):hover {
     background: var(--primary);
     color: var(--dark);
     border-color: var(--primary);

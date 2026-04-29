@@ -6,38 +6,30 @@ import Projects from './components/Projects';
 import Robotics from './components/Robotics';
 import Footer from './components/Footer';
 import FloatingTerminal from './components/FloatingTerminal';
-import './styles/App.css'
+import './styles/App.css';
 
 function App() {
-  const [animationComplete, setAnimationComplete] = useState(false);
+    const [animationComplete, setAnimationComplete] = useState(false);
 
-  useEffect(() => {
-    if (!animationComplete) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [animationComplete]);
+    useEffect(() => {
+        document.body.style.overflow = animationComplete ? '' : 'hidden';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [animationComplete]);
 
-  const handleAnimationComplete = () => {
-    setAnimationComplete(true);
-  };
-
-  return (
-    <Router>
-        <div className='App'>
-            <Header onAnimationComplete={handleAnimationComplete} />
-            <About />
-            <Projects />
-            <Robotics />
-            <Footer />
-            <FloatingTerminal isVisible={animationComplete} />
-        </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Header onAnimationComplete={() => setAnimationComplete(true)} />
+                <About />
+                <Projects />
+                <Robotics />
+                <Footer />
+                <FloatingTerminal isVisible={animationComplete} />
+            </div>
+        </Router>
+    );
 }
 
 export default App;

@@ -1,13 +1,11 @@
-/* styles/App.css */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Matte, desaturated palette */
-    --primary: #7dd3c0;       /* Matte teal */
-    --secondary: #a78bda;     /* Matte purple */
-    --accent: #e09b7d;        /* Matte coral/orange */
-    --highlight: #d4c97a;     /* Matte gold */
-    --terminal-green: #5cb85c; /* Terminal green */
+    --primary: #7dd3c0;
+    --secondary: #a78bda;
+    --accent: #e09b7d;
+    --highlight: #d4c97a;
+    --terminal-green: #5cb85c;
     --dark: #121216;
     --code-bg: #1a1a1f;
     --light: #fafafa;
@@ -43,7 +41,6 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -51,38 +48,26 @@ body {
 }
 
 @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateX(-50%) translateY(0);
     }
-
     40% {
         transform: translateX(-50%) translateY(-10px);
     }
-
     60% {
         transform: translateX(-50%) translateY(-5px);
     }
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
 }
 
-/* Add this to your global CSS file or create a new ScrollbarStyles.css */
-/* For WebKit browsers (Chrome, Safari, newer versions of Opera) */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -103,7 +88,6 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* For Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.1);

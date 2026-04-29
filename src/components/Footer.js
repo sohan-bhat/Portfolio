@@ -1,47 +1,36 @@
-/* eslint-disable react/jsx-no-target-blank */
-import React from 'react'
-import { FaGithub, FaEnvelope } from 'react-icons/fa6'
-import '../styles/Footer.css'
+import React from 'react';
+import { FaGithub, FaEnvelope } from 'react-icons/fa6';
+import '../styles/Footer.css';
+
+const LINE_COUNT = 30;
+
+const randomBinary = () =>
+    Array.from({ length: 8 }, () => Math.round(Math.random())).join('');
+
+const computePositions = (count) => {
+    const sectionWidth = 100 / count;
+    return Array.from({ length: count }, (_, i) =>
+        i * sectionWidth + (Math.random() - 0.5) * sectionWidth * 0.5
+    );
+};
 
 const Footer = () => {
-    const generateRandomBinary = () => {
-        return Array.from({ length: 8 })
-            .map(() => Math.round(Math.random()))
-            .join('');
-    };
-
-    // Create an array of evenly spaced positions with some randomness
-    const createDistributedPositions = (count) => {
-        const positions = [];
-        const sectionWidth = 100 / count; // Divide the width into equal sections
-
-        for (let i = 0; i < count; i++) {
-            // Position in the middle of each section with a small random offset
-            const basePosition = i * sectionWidth;
-            const randomOffset = (Math.random() - 0.5) * (sectionWidth * 0.5);
-            positions.push(basePosition + randomOffset);
-        }
-
-        return positions;
-    };
-
-    const lineCount = 30;
-    const positions = createDistributedPositions(lineCount);
+    const positions = computePositions(LINE_COUNT);
 
     return (
-        <footer className='footer'>
-            <div className='matrix-bg'>
+        <footer className="footer">
+            <div className="matrix-bg">
                 {positions.map((position, index) => (
                     <div
                         key={index}
-                        className='matrix-line'
+                        className="matrix-line"
                         style={{
                             left: `${position}%`,
                             animationDuration: `${8 + Math.random() * 8}s`,
                             opacity: 0.5 + Math.random() * 0.5
                         }}
                     >
-                        {generateRandomBinary()}
+                        {randomBinary()}
                     </div>
                 ))}
             </div>
@@ -58,9 +47,9 @@ const Footer = () => {
                         </a>
                         <a
                             href="https://github.com/sohan-bhat"
-                            className="footer-link"
                             target="_blank"
                             rel="noreferrer"
+                            className="footer-link"
                             aria-label="GitHub"
                         >
                             <FaGithub />
@@ -71,7 +60,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

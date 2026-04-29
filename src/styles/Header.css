@@ -1,4 +1,3 @@
-/* styles/Header.css */
 .header {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
     padding-top: 15vh;
     background: var(--dark);
 }
-
 
 .container {
     display: flex;
@@ -72,7 +70,6 @@
     transition: all 0.3s ease;
 }
 
-/* GitHub - light/white */
 .social-link:nth-child(1) {
     color: var(--light);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -83,35 +80,23 @@
     transform: translateY(-2px);
 }
 
-/* Google - matte red */
 .social-link:nth-child(2) {
-    color: #db6b5e;
-    border: 1px solid rgba(219, 107, 94, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .social-link:nth-child(2):hover {
-    background: rgba(219, 107, 94, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-2px);
 }
 
-/* LinkedIn - matte blue */
 .social-link:nth-child(3) {
-    color: #7eb8da;
-    border: 1px solid rgba(126, 184, 218, 0.4);
-}
-
-.social-link:nth-child(3):hover {
-    background: rgba(126, 184, 218, 0.15);
-    transform: translateY(-2px);
-}
-
-/* X - white/light */
-.social-link:nth-child(4) {
     color: var(--light);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.social-link:nth-child(4):hover {
+.social-link:nth-child(3):hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }

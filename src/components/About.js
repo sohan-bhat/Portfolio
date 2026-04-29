@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/About.css';
 
 const About = () => {
-    // PLACEHOLDER %CPU values represent attention/time allocation, not real CPU usage.
     const processes = [
         { pid: '1247', cpu: '45%', command: 'building VacantCourt iOS port' },
         { pid: '1248', cpu: '30%', command: 'FRC offseason — swerve drive tuning' },
@@ -15,7 +14,6 @@ const About = () => {
             <div className="container">
                 <h2 className="section-title">About<span className="title-period">.</span></h2>
 
-                {/* PLACEHOLDER prose — replace with real bio */}
                 <div className="about-prose">
                     <p>
                         I'm Sohan, a 15-year-old sophomore at Heritage High School in Frisco, TX.

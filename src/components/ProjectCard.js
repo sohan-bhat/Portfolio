@@ -1,74 +1,66 @@
-// src/components/ProjectCard.js
-import React, { useState, useEffect } from 'react';
-import '../styles/ProjectCard.css'
+import React, { useState } from 'react';
+import '../styles/ProjectCard.css';
+
+const PLACEHOLDER_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f172a'/%3E%3Ctext x='50' y='50' font-family='Arial' font-size='14' text-anchor='middle' fill='%233b82f6' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
+
+const buildCodeLinks = (project) => {
+    if (project.codeLinks) return project.codeLinks;
+    if (project.codeLink) return [{ label: 'Code', url: project.codeLink }];
+    return [];
+};
 
 const ProjectCard = ({ project }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
     const [imageError, setImageError] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 100);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    }
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    }
-
-    const handleImageError = () => {
-        setImageError(true);
-    }
-
-    // Default placeholder if image is missing or fails to load
-    const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f172a'/%3E%3Ctext x='50' y='50' font-family='Arial' font-size='14' text-anchor='middle' fill='%233b82f6' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
+    const imgSrc = imageError || !project.image ? PLACEHOLDER_IMAGE : project.image;
+    const codeLinks = buildCodeLinks(project);
+    const isProduction = project.status === 'Production';
 
     return (
-        <div
-            className={`project-card ${isHovered ? 'hovered' : ''} ${isVisible ? 'visible' : ''}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <div className='project-image'>
+        <div className="project-card">
+            <div className="project-image">
                 <img
-                    src={imageError || !project.image ? placeholderImage : project.image}
+                    src={imgSrc}
                     alt={project.title}
-                    loading='lazy'
-                    onError={handleImageError}
+                    loading="lazy"
+                    onError={() => setImageError(true)}
                 />
-                <div className='project-overlay'>
-                    <div className='project-links'>
+                <div className="project-overlay">
+                    <div className="project-links">
                         {project.demoLink && (
-                            <a href={project.demoLink} target='_blank' className='project-link' rel="noreferrer">Demo</a>
+                            <a
+                                href={project.demoLink}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-link"
+                            >
+                                Demo
+                            </a>
                         )}
-                        {project.codeLinks ? (
-                            project.codeLinks.map((link) => (
-                                <a key={link.label} href={link.url} target='_blank' className='project-link' rel="noreferrer">{link.label}</a>
-                            ))
-                        ) : (
-                            <a href={project.codeLink} target='_blank' className='project-link' rel="noreferrer">Code</a>
-                        )}
+                        {codeLinks.map((link) => (
+                            <a
+                                key={link.label}
+                                href={link.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-link"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
-            <div className='project-content'>
+            <div className="project-content">
                 <div className="project-header">
-                    <h3 className='project-title'>{project.title}</h3>
-                    <span className={`project-badge ${project.status === "Production" ? 'badge-production' : 'badge-development'}`}>
-                        {project.status === "Production" ? "Prod" : "Dev"}
+                    <h3 className="project-title">{project.title}</h3>
+                    <span className={`project-badge ${isProduction ? 'badge-production' : 'badge-development'}`}>
+                        {isProduction ? 'Prod' : 'Dev'}
                     </span>
                 </div>
                 <p>{project.description}</p>
-                <div className='project-tags'>
+                <div className="project-tags">
                     {project.tags.map((tag, index) => (
-                        <span key={index} className={`project-tag tag-${index % 4}`}>
+                        <span key={tag} className={`project-tag tag-${index % 4}`}>
                             {tag}
                         </span>
                     ))}
@@ -76,6 +68,6 @@ const ProjectCard = ({ project }) => {
             </div>
         </div>
     );
-}
+};
 
 export default React.memo(ProjectCard);
