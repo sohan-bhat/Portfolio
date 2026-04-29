@@ -45,12 +45,131 @@
     font-size: 1rem;
 }
 
+.season-slider-wrap {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    padding: 0 0.5rem;
+}
+
+.season-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.65rem;
+    gap: 0.5rem;
+}
+
+.season-tick {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    font-family: 'Space Mono', monospace;
+    transition: transform 0.15s ease;
+}
+
+.season-tick:hover {
+    transform: translateY(-1px);
+}
+
+.season-tick .tick-year {
+    color: var(--muted);
+    font-size: 0.85rem;
+    transition: color 0.15s ease;
+}
+
+.season-tick .tick-name {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+}
+
+.season-tick.active .tick-year {
+    color: var(--primary);
+}
+
+.season-tick.active .tick-name {
+    color: var(--primary);
+}
+
+.season-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.season-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 14px;
+    background: var(--primary);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: -6px;
+    transition: transform 0.15s ease;
+    transform-origin: 50% 100%;
+}
+
+.season-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.season-slider::-moz-range-thumb {
+    width: 16px;
+    height: 14px;
+    background: var(--primary);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    transform-origin: 50% 100%;
+}
+
+.season-slider:hover::-moz-range-thumb {
+    transform: scale(1.2);
+}
+
+.season-slider:active::-webkit-slider-thumb {
+    transform: scale(1.3);
+}
+
+.season-slider:active::-moz-range-thumb {
+    transform: scale(1.3);
+}
+
 .robotics-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: stretch;
     margin-bottom: 2rem;
+    animation: seasonFade 0.32s ease both;
+}
+
+@keyframes seasonFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .robot-photo-slot {
@@ -61,6 +180,8 @@
     display: flex;
     align-items: stretch;
     justify-content: stretch;
+    width: 100%;
+    max-height: 620px;
 }
 
 .robot-photo-slot img {
@@ -70,10 +191,82 @@
     display: block;
 }
 
+.image-fallback {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    border: 1px dashed rgba(125, 211, 192, 0.25);
+    border-radius: 8px;
+}
+
 .robotics-right {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: 100%;
+    min-height: 0;
+}
+
+.season-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.season-logo-slot {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.season-logo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.season-logo-slot .image-fallback {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    padding: 0.4rem;
+    border: 1px dashed rgba(125, 211, 192, 0.25);
+    border-radius: 8px;
+}
+
+.season-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.season-meta-year {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.season-meta-name {
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .season-log {
@@ -84,19 +277,23 @@
     font-family: 'Space Mono', monospace;
     font-size: 0.85rem;
     line-height: 1.7;
-    overflow-x: auto;
+    overflow: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.season {
-    margin-bottom: 1rem;
-}
-
-.season:last-child {
+.season-log .season {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0;
 }
 
 .season-prompt-line {
     margin-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
 .season-prompt {
@@ -111,7 +308,9 @@
 .season-entries {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 0.4rem;
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .season-entry {
@@ -119,11 +318,14 @@
     grid-template-columns: 80px 1fr;
     gap: 0.75rem;
     color: rgba(250, 250, 250, 0.85);
+    align-items: start;
+    flex: 0 0 auto;
 }
 
 .season-entry-image {
-    align-items: start;
-    margin-top: 0.4rem;
+    flex: 1 1 auto;
+    min-height: 0;
+    align-items: stretch;
 }
 
 .entry-hash {
@@ -135,8 +337,11 @@
 }
 
 .entry-image {
+    width: auto;
     max-width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
     display: block;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -172,6 +377,10 @@
         font-size: 2.25rem;
     }
 
+    .robot-photo-slot {
+        max-height: none;
+    }
+
     .season-log {
         font-size: 0.75rem;
     }
@@ -179,5 +388,14 @@
     .season-entry {
         grid-template-columns: 70px 1fr;
         gap: 0.5rem;
+    }
+
+    .season-tick .tick-name {
+        display: none;
+    }
+
+    .season-logo-slot {
+        width: 72px;
+        height: 72px;
     }
 }
