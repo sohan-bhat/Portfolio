@@ -1,11 +1,9 @@
-/* styles/Projects.css */
 .projects {
     padding: 6rem 0;
     background-color: var(--dark);
     position: relative;
 }
 
-/* Top border line */
 .projects::before {
     content: '';
     position: absolute;
@@ -39,6 +37,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
+    align-items: start;
 }
 
 @media (max-width: 1024px) {
