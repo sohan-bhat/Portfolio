@@ -76,12 +76,16 @@ const renderWithLinks = (text) => {
     return out.length ? out : text;
 };
 
+const CLOSE_ANIM_MS = 180;
+
 const FloatingTerminal = ({ isVisible }) => {
     const [open, setOpen] = useState(false);
+    const [exiting, setExiting] = useState(false);
     const [history, setHistory] = useState([]);
     const [input, setInput] = useState('');
     const bodyRef = useRef(null);
     const inputRef = useRef(null);
+    const closeTimerRef = useRef(null);
 
     const suggestion = useMemo(() => {
         const q = input.trim().toLowerCase();
@@ -150,8 +154,22 @@ const FloatingTerminal = ({ isVisible }) => {
     }, [open]);
 
     const handleToggle = () => {
-        setOpen((v) => !v);
+        if (open) {
+            if (exiting) return;
+            setExiting(true);
+            closeTimerRef.current = setTimeout(() => {
+                setOpen(false);
+                setExiting(false);
+                closeTimerRef.current = null;
+            }, CLOSE_ANIM_MS);
+        } else {
+            setOpen(true);
+        }
     };
+
+    useEffect(() => () => {
+        if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    }, []);
 
     if (!isVisible) return null;
 
@@ -169,7 +187,7 @@ const FloatingTerminal = ({ isVisible }) => {
             )}
 
             {open && (
-                <div className="float-term-panel" role="dialog" aria-label="CLI mode">
+                <div className={`float-term-panel ${exiting ? 'exiting' : ''}`} role="dialog" aria-label="CLI mode">
                     <div className="float-term-header">
                         <button
                             className="float-term-close mac-dot"

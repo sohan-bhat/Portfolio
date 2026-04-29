@@ -6,7 +6,6 @@
     font-family: 'Space Mono', monospace;
 }
 
-/* Collapsed button */
 .float-term-toggle {
     background: var(--code-bg);
     color: var(--primary);
@@ -22,6 +21,7 @@
     letter-spacing: 0.05em;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    animation: ft-toggle-in 0.2s ease-out both;
 }
 
 .float-term-toggle:hover {
@@ -40,7 +40,6 @@
     text-transform: lowercase;
 }
 
-/* Expanded panel */
 .float-term-panel {
     width: 400px;
     height: 360px;
@@ -51,17 +50,44 @@
     flex-direction: column;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    animation: ft-pop 0.2s ease-out;
+    transform-origin: bottom right;
+    animation: ft-pop-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes ft-pop {
+.float-term-panel.exiting {
+    animation: ft-pop-out 0.18s ease-in both;
+}
+
+@keyframes ft-pop-in {
     from {
         opacity: 0;
-        transform: translateY(8px) scale(0.98);
+        transform: translateY(10px) scale(0.94);
     }
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes ft-pop-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(8px) scale(0.94);
+    }
+}
+
+@keyframes ft-toggle-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
