@@ -11,7 +11,7 @@ const COMMANDS = {
     ],
     projects: () => [
         'VacantCourt   real-time court availability (Web + Android + Firebase)',
-        'Foodify       recipe finder from ingredients you have',
+        'Mochi         recipe finder from ingredients you have',
         'CareerAI      AI-powered career recommender',
     ],
     robotics: () => [

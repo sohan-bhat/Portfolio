@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Skill(frontend-design:frontend-design)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(cp \"/Volumes/SSK_EXTRA/IMG_6291.HEIC.jpg\" \"/Users/sohanb/code/portfolio/public/imgs/robot-2026.jpg\")",
+      "Bash(cp \"/Users/sohanb/Desktop/Screenshot 2026-04-27 at 10.15.58 PM.png\" \"/Users/sohanb/code/portfolio/public/imgs/blue-banner.png\")",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(cp /Users/sohanb/.claude/image-cache/b92ba230-fb9f-404b-a5be-debe695593fa/7.png /Users/sohanb/code/portfolio/public/imgs/seasons/reefscape-logo.png)",
+      "Bash(cp /Users/sohanb/.claude/image-cache/b92ba230-fb9f-404b-a5be-debe695593fa/6.png /Users/sohanb/code/portfolio/public/imgs/robot-2025.jpg)",
+      "Bash(cp /Users/sohanb/.claude/image-cache/b92ba230-fb9f-404b-a5be-debe695593fa/5.png /Users/sohanb/code/portfolio/public/imgs/banner-2025-fortworth.png)"
     ],
     "deny": [],
     "ask": []

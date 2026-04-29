@@ -27,12 +27,12 @@ const projects = [
     },
     {
         id: 2,
-        title: "Foodify",
+        title: "Mochi",
         description: "A fully responsive recipe finder from just the ingredients you have!",
-        image: "/imgs/Foodify.png",
+        image: "/imgs/Mochi.png",
         tags: ["React", "Node.js", "Groq API"],
-        demoLink: "https://foodistry.netlify.app",
-        codeLink: "https://github.com/sohan-bhat/Foodify",
+        demoLink: "https://trymochi.netlify.app",
+        codeLink: "https://github.com/sohan-bhat/Mochi",
         status: "Production"
     },
     {
