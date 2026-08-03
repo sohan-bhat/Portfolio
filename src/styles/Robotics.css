@@ -1,401 +1,78 @@
-.robotics {
-    padding: 6rem 0;
-    background-color: var(--dark);
-    position: relative;
-}
-
-.robotics::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.robotics .section-title {
-    font-family: 'Outfit', sans-serif;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.robotics-subtitle {
-    text-align: center;
-    font-family: 'Space Mono', monospace;
-    color: var(--primary);
-    letter-spacing: 0.1em;
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-}
-
 .robotics-prose {
-    max-width: 720px;
-    margin: 0 auto 3rem;
-    text-align: center;
-    color: rgba(250, 250, 250, 0.85);
-    line-height: 1.7;
-    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: -0.75rem 0 2rem;
 }
 
-.season-slider-wrap {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    padding: 0 0.5rem;
-}
-
-.season-slider-labels {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 0.65rem;
-    gap: 0.5rem;
-}
-
-.season-tick {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.1rem;
-    font-family: 'Space Mono', monospace;
-    transition: transform 0.15s ease;
-}
-
-.season-tick:hover {
-    transform: translateY(-1px);
-}
-
-.season-tick .tick-year {
-    color: var(--muted);
-    font-size: 0.85rem;
-    transition: color 0.15s ease;
-}
-
-.season-tick .tick-name {
-    color: rgba(255, 255, 255, 0.25);
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.15s ease;
-}
-
-.season-tick.active .tick-year {
-    color: var(--primary);
-}
-
-.season-tick.active .tick-name {
-    color: var(--primary);
-}
-
-.season-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
-}
-
-.season-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 14px;
-    background: var(--primary);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    margin-top: -6px;
-    transition: transform 0.15s ease;
-    transform-origin: 50% 100%;
-}
-
-.season-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-}
-
-.season-slider::-moz-range-thumb {
-    width: 16px;
-    height: 14px;
-    background: var(--primary);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    transition: transform 0.15s ease;
-    transform-origin: 50% 100%;
-}
-
-.season-slider:hover::-moz-range-thumb {
-    transform: scale(1.2);
-}
-
-.season-slider:active::-webkit-slider-thumb {
-    transform: scale(1.3);
-}
-
-.season-slider:active::-moz-range-thumb {
-    transform: scale(1.3);
-}
-
-.robotics-grid {
+.season-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: stretch;
-    margin-bottom: 2rem;
-    animation: seasonFade 0.32s ease both;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
-@keyframes seasonFade {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.robot-photo-slot {
-    background: var(--code-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+.season-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
     overflow: hidden;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    width: 100%;
-    max-height: 620px;
 }
 
-.robot-photo-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.season-photo {
     display: block;
-}
-
-.image-fallback {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--muted);
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1rem;
-    border: 1px dashed rgba(125, 211, 192, 0.25);
-    border-radius: 8px;
-}
-
-.robotics-right {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: 100%;
-    min-height: 0;
-}
-
-.season-header-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
-}
-
-.season-logo-slot {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.season-logo-slot img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
+    border-bottom: 1px solid var(--line);
+    background: var(--sand);
+}
+
+.season-info {
+    padding: 1.15rem 1.35rem 1.35rem;
+}
+
+.season-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.season-year {
+    color: var(--accent);
+}
+
+.season-note {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-top: 0.15rem;
+}
+
+.season-banner {
     display: block;
-}
-
-.season-logo-slot .image-fallback {
-    font-size: 0.6rem;
-    letter-spacing: 0.05em;
-    padding: 0.4rem;
-    border: 1px dashed rgba(125, 211, 192, 0.25);
-    border-radius: 8px;
-}
-
-.season-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    font-family: 'Space Mono', monospace;
-}
-
-.season-meta-year {
-    color: var(--primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.season-meta-name {
-    color: var(--muted);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.season-log {
-    background: var(--code-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    overflow: auto;
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.season-log .season {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
-}
-
-.season-prompt-line {
-    margin-bottom: 0.5rem;
-    flex-shrink: 0;
-}
-
-.season-prompt {
-    color: var(--primary);
-    margin-right: 0.6rem;
-}
-
-.season-command {
-    color: var(--light);
-}
-
-.season-entries {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    flex: 1 1 auto;
-    min-height: 0;
-}
-
-.season-entry {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 0.75rem;
-    color: rgba(250, 250, 250, 0.85);
-    align-items: start;
-    flex: 0 0 auto;
-}
-
-.season-entry-image {
-    flex: 1 1 auto;
-    min-height: 0;
-    align-items: stretch;
-}
-
-.entry-hash {
-    color: var(--primary);
-}
-
-.entry-line {
-    color: rgba(250, 250, 250, 0.85);
-}
-
-.entry-image {
-    width: auto;
+    height: 110px;
     max-width: 100%;
-    height: 100%;
     object-fit: contain;
-    object-position: left center;
-    display: block;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    object-position: left;
+    margin-top: 0.9rem;
 }
 
 .tba-link {
-    display: block;
-    text-align: center;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--primary);
+    display: inline-block;
+    margin-top: 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent);
     text-decoration: none;
-    border: 1px solid rgba(125, 211, 192, 0.4);
-    border-radius: 4px;
-    padding: 0.6rem 1rem;
-    width: max-content;
-    margin: 0 auto;
-    transition: all 0.2s ease;
 }
 
 .tba-link:hover {
-    background: var(--primary);
-    color: var(--dark);
-    border-color: var(--primary);
+    text-decoration: underline wavy;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
 }
 
 @media (max-width: 768px) {
-    .robotics-grid {
+    .season-list {
         grid-template-columns: 1fr;
-    }
-
-    .robotics .section-title {
-        font-size: 2.25rem;
-    }
-
-    .robot-photo-slot {
-        max-height: none;
-    }
-
-    .season-log {
-        font-size: 0.75rem;
-    }
-
-    .season-entry {
-        grid-template-columns: 70px 1fr;
-        gap: 0.5rem;
-    }
-
-    .season-tick .tick-name {
-        display: none;
-    }
-
-    .season-logo-slot {
-        width: 72px;
-        height: 72px;
     }
 }

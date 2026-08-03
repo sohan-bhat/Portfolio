@@ -1,57 +1,50 @@
-.projects {
-    padding: 6rem 0;
-    background-color: var(--dark);
+/* vertical timeline the project cards hang off */
+.time-spine {
     position: relative;
 }
 
-.projects::before {
+.time-spine::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
+    left: 5px;
+    top: 8px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--line);
 }
 
-.section-title {
-    font-family: 'Outfit', sans-serif;
-    text-align: center;
-    margin-bottom: 4rem;
+.spine-year {
     position: relative;
-    font-size: 3rem;
+    padding-left: 2.2rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s ease forwards;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin: 1.8rem 0 1rem;
 }
 
-.title-period {
-    color: var(--primary);
+.spine-year-group:first-child .spine-year {
+    margin-top: 0;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    width: 100%;
-    align-items: start;
+/* hollow ring marks a year on the spine; translate(-50%) centers it on
+   the line's center (x = 6px) regardless of the ring's own size */
+.spine-year::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
 }
 
-@media (max-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        margin-bottom: 3rem;
+@media (max-width: 640px) {
+    .spine-year {
+        padding-left: 1.8rem;
     }
 }
