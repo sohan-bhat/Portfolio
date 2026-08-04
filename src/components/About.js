@@ -9,7 +9,7 @@ const About = () => (
                     <h2 className="section-title">About<span className="title-period">.</span></h2>
                     <div className="about-prose">
                         <p>
-                            I'm Sohan, a 15-year-old sophomore at Heritage High School in Frisco, TX.
+                            I'm 15 studying as a  sophomore at Heritage High School in Frisco, TX.
                         </p>
                         <p>
                             I build ML systems from scratch to understand what's under the frameworks.
@@ -17,15 +17,14 @@ const About = () => (
                             NumPy (no PyTorch, no autograd) that classifies German traffic signs at 90%
                             accuracy, with a live browser demo. Before that, a scalar autograd engine.
                             Currently starting a research project on detecting silent training failures,
-                            born out of a bug in SignNet that cost me weeks.
+                            because of a bug in SignNet that lost me weeks.
                         </p>
                         <p>
                             I program for FRC Team 2714 in Java, heading into the season focused on
                             vision and autonomous. I'm also training for USACO Bronze in C++.
                         </p>
                         <p>
-                            Outside of that, I'm usually shipping side projects or breaking and fixing
-                            my own setup.
+                            Outside of that, I have a hobby in soccer and tennis while also loving to spend time hiking with my family.
                         </p>
                     </div>
                 </div>
