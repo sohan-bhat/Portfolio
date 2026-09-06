@@ -2,7 +2,6 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import '../styles/Projects.css';
 
-// date = GitHub repo creation date
 const projects = [
     {
         id: 6,
@@ -23,6 +22,17 @@ const projects = [
         tags: ["React", "Vite", "Express", "VexFlow", "LibSQL"],
         demoLink: "https://ensemble-qnd2.onrender.com",
         codeLink: "https://github.com/sohan-bhat/ensemble",
+    },
+    {
+        id: 7,
+        title: "Taro",
+        date: "2026-08-29",
+        description: "A voice-activated meeting assistant that joins Google Meet calls and listens for \"Hey Taro\". It posts to Slack, files GitHub issues, and builds todo lists live, mid-meeting, confirmed with an audible ding.",
+        image: "/imgs/Taro.png",
+        tags: ["TypeScript", "Next.js", "Express", "Gemini", "sherpa-onnx"],
+        demoLink: "https://trytaro.vercel.app/demo",
+        videoLink: "https://www.youtube.com/watch?v=su7_NPbPpzk",
+        codeLink: "https://github.com/sohan-bhat/Taro",
     },
     {
         id: 4,
@@ -70,7 +80,6 @@ const projects = [
 
 const toMs = (iso) => new Date(iso).getTime();
 
-// Newest first, grouped by year: [[2026, [...]], [2025, [...]], ...]
 const groupByYear = (list) => {
     const sorted = [...list].sort((a, b) => toMs(b.date) - toMs(a.date));
     const groups = [];

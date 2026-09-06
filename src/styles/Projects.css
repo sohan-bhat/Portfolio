@@ -1,4 +1,3 @@
-/* vertical timeline the project cards hang off */
 .time-spine {
     position: relative;
 }
@@ -28,8 +27,6 @@
     margin-top: 0;
 }
 
-/* hollow ring marks a year on the spine; translate(-50%) centers it on
-   the line's center (x = 6px) regardless of the ring's own size */
 .spine-year::before {
     content: '';
     position: absolute;

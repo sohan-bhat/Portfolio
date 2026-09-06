@@ -38,6 +38,16 @@ const ProjectCard = ({ project }) => {
                                 Live ↗
                             </a>
                         )}
+                        {project.videoLink && (
+                            <a
+                                href={project.videoLink}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="entry-link"
+                            >
+                                Video ↗
+                            </a>
+                        )}
                         {codeLinks.map((link) => (
                             <a
                                 key={link.label}

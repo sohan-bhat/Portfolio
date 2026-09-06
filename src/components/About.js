@@ -16,8 +16,8 @@ const About = () => (
                             Most recently: SignNet, a convolutional neural network written entirely in
                             NumPy (no PyTorch, no autograd) that classifies German traffic signs at 90%
                             accuracy, with a live browser demo. Before that, a scalar autograd engine.
-                            Currently starting a research project on detecting silent training failures,
-                            because of a bug in SignNet that lost me weeks.
+                            That work led to a research paper on detecting silent training failures,
+                            born from a bug in SignNet that lost me weeks.
                         </p>
                         <p>
                             I program for FRC Team 2714 in Java, heading into the season focused on
@@ -35,11 +35,11 @@ const About = () => (
                         <h3 className="research-paper-title">
                             Early detection of silent training failures in neural networks
                         </h3>
-                        <p className="research-meta">Sohan Bhat · working draft, 2026</p>
+                        <p className="research-meta">Sohan Bhat · 2026</p>
                         <p className="research-description">
                             The network trains, the loss falls, and the model is still wrong.
-                            Studying how these failures slip through unnoticed and how to catch
-                            them early.
+                            A study of how these failures slip through unnoticed and how to
+                            catch them early.
                         </p>
                         <a
                             className="research-link"
@@ -47,7 +47,7 @@ const About = () => (
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Read the draft ↗
+                            Read the paper ↗
                         </a>
                     </article>
                 </aside>
