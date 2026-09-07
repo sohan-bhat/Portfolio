@@ -21,7 +21,7 @@ const About = () => (
                         </p>
                         <p>
                             I program for FRC Team 2714 in Java, heading into the season focused on
-                            vision and autonomous. I'm also training for USACO Bronze in C++.
+                            vision and autonomous. I'm also training for USACO Gold in C++.
                         </p>
                         <p>
                             Outside of that, I have a hobby in soccer and tennis while also loving to spend time hiking with my family.
